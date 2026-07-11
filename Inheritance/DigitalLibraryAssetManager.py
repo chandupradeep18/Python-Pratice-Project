@@ -6,8 +6,8 @@ import random
 class DigitalAsset:
     total_assets_in_network=0
     def __init__(self,title:str,author:str):
-        title=title.upper()
-        author=author.upper()
+        title=title.upper().strip()
+        author=author.upper().strip()
         self._asset_id=str(uuid.uuid4())[:8]
         self._title=title
         self._author=author
