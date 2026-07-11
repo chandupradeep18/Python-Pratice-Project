@@ -12,7 +12,7 @@ from typing import List,Dict,Any,Optional
 class PublisherException(Exception):
     def __init__(self, message:str,platform_name:str):
         super().__init__(f"[{platform_name.upper()}] {message}")
-        self.platform_name=platform_name
+        self.platform_name=platform_name.strip()
         self.timestamp=datetime.now()
 
 class AuthenticationError(PublisherException):
@@ -26,18 +26,18 @@ class RateLimitExceededError(PublisherException):
 
 class PostPayLoad:
     def __init__(self,text: str, media_url: Optional[str] = None, media_type: Optional[str] = None):
-        self.text = text
-        self.media_url = media_url
+        self.text = text.strip()
+        self.media_url = media_url.strip()
         self.media_type = media_type  # Expected options: 'IMAGE', 'VIDEO', or None
         self.payload_id = hashlib.md5(f"{text}{media_url}{time.time()}".encode()).hexdigest()[:8]
 
 class PublicationReport:
     def __init__(self, platform: str, success: bool, tracking_id: Optional[str] = None, error_msg: Optional[str] = None):
-        self.platform = platform
+        self.platform = platform.strip()
         self.success = success
         self.tracking_id = tracking_id
         self.error_message = error_msg
-        self.timestamp = datetime.datetime.utcnow()
+        self.timestamp = datetime.datetime.now()
 
 class SocialMediaPlatform(ABC):
     global_total_attempts: int = 0
