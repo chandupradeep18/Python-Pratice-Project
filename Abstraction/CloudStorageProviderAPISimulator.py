@@ -7,7 +7,7 @@ import random
 from abc import ABC,abstractmethod
 
 class CloudFile:
-    allowed_extensions = ['.txt', '.pdf', '.png', '.jpg', '.csv', '.json']
+    allowed_extensions = ['.txt', '.pdf', '.png', '.jpg', '.csv', '.json','.doc']
     def __init__(self,filename,size_mb):
         if not self.validate_extension(filename):
             raise ValueError('Invalid File Extension')
