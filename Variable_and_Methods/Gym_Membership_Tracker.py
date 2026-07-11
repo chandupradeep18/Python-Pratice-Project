@@ -2,7 +2,7 @@
 #Gym Membership Tracker
 from datetime import datetime
 class MembershipPlan:
-    def __init__(self,name,monthly_fee,includes_classes,cancellation_fee):
+    def __init__(self,name,monthly_fee,includes_classes,cancellation_fee): #bdfbngnbfgn
         self.name=name
         self.monthly_fee=monthly_fee
         self.includes_classes=includes_classes
